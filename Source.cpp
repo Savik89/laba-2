@@ -6,6 +6,14 @@
 using namespace std;
 using namespace chrono;
 
+const short int n = 100;
+int arr[n];
+void GenerateArray(int* arr, int n)
+{
+	srand(time(0));
+	for (int i = 0; i < n; i++)
+		arr[i] = rand() % 199 - 99;
+}
 void cloneArray(int arr[], int arr2[])
 {
 	for (int i = 0; i < 100; i++)
@@ -133,28 +141,20 @@ void quickSort(int arr[], int left, int right)
 void inputRandomArray()
 {
 	system("cls");
-	const int n = 100;
-	int arr[n];
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ: \n";
+	GenerateArray(arr, n);
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
-	cout << "\n\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
+	cout << "\n\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
 	_getch();
 	system("cls");
 }
 void sortArray()
 {
 	system("cls");
-	const int n = 100;
-	int arr[n];
 	int arr2[n];
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ: \n";
+	GenerateArray(arr, n);
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
 	cloneArray(arr, arr2);
@@ -182,26 +182,22 @@ void sortArray()
 	quickSort(arr, 0, n-1);
 	auto end5 = steady_clock::now();
 	auto result5 = duration_cast<nanoseconds>(end5 - start5);
-	cout << "\n\nÎòñîðòèðîâàííûé ìàññèâ: \n";
+	cout << "\n\nÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
-	cout << "\n\nÂðåìÿ buble sort: " << result1.count() << " íàíîñåêóíä\n";
-	cout << "Âðåìÿ shaker sort: " << result2.count() << " íàíîñåêóíä\n";
-	cout << "Âðåìÿ comb sort: " << result3.count() << " íàíîñåêóíä\n";
-	cout << "Âðåìÿ insert sort: " << result4.count() << " íàíîñåêóíä\n";
-	cout << "Âðåìÿ quick sort: " << result5.count() << " íàíîñåêóíä\n";
-	cout << "\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
+	cout << "\n\nÐ’Ñ€ÐµÐ¼Ñ buble sort: " << result1.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
+	cout << "Ð’Ñ€ÐµÐ¼Ñ shaker sort: " << result2.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
+	cout << "Ð’Ñ€ÐµÐ¼Ñ comb sort: " << result3.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
+	cout << "Ð’Ñ€ÐµÐ¼Ñ insert sort: " << result4.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
+	cout << "Ð’Ñ€ÐµÐ¼Ñ quick sort: " << result5.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
+	cout << "\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
 	_getch();
 	system("cls");
 }
 void findMinMax()
 {
 	system("cls");
-	const int n = 100;
-	int arr[n];
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
+	GenerateArray(arr, n);
 	int min = arr[0], max = arr[0];
 	auto start1 = steady_clock::now();
 	for (int i = 0; i < n; i++)
@@ -213,10 +209,10 @@ void findMinMax()
 	}
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ:\n";
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²:\n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
-	cout << "\n\nÌèíèìàëüíûé ýëåìåíò: " << min << "\nÌàêñèìàëüíûé ýëåìåíò: " << max << endl;
+	cout << "\n\nÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: " << min << "\nÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: " << max << endl;
 	quickSort(arr, 0, n - 1);
 	int minSort = arr[0], maxSort = arr[0];
 	auto start2 = steady_clock::now();
@@ -229,20 +225,16 @@ void findMinMax()
 	}
 	auto end2 = steady_clock::now(); 
 	auto result2 = duration_cast<nanoseconds>(end2 - start2);
-	cout << "\nÂðåìÿ ïîèñêà â íåîòñîðòèðîâàííîì: " << result1.count() << " íàíîñåêóíä\n" << "Âðåìÿ ïîèñêà â îòñîðòèðîâàííîì: " << result2.count() << " íàíîñåêóíä\n" << endl;
-	cout << "\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
+	cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¿Ð¾Ð¸ÑÐºÐ° Ð² Ð½ÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð¼: " << result1.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n" << "Ð’Ñ€ÐµÐ¼Ñ Ð¿Ð¾Ð¸ÑÐºÐ° Ð² Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð¼: " << result2.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´\n" << endl;
+	cout << "\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
 	_getch();
 	system("cls");
 }
 void avgMinMax()
 {
 	system("cls");
-	const int n = 100;
-	int arr[n];
 	int count = 0;
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
+	GenerateArray(arr, n);
 	int min = arr[0], max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
@@ -252,11 +244,11 @@ void avgMinMax()
 			min = arr[i];
 	}
 	int avg = (min + max) / 2;
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ:\n";
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²:\n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
-	cout << "\n\nÑðåäíåå çíà÷åíèå ìèíèìàëüíîãî è ìàêñèìàëüíîãî: " << avg << endl;
-	cout << "\nÈíäåêñû ýëåìåíòîâ, ðàâíûõ ñðåäíåìó â íåñîðò. ìàññèâå: ";
+	cout << "\n\nÐ¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð¸ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾: " << avg << endl;
+	cout << "\nÐ˜Ð½Ð´ÐµÐºÑÑ‹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², Ñ€Ð°Ð²Ð½Ñ‹Ñ… ÑÑ€ÐµÐ´Ð½ÐµÐ¼Ñƒ Ð² Ð½ÐµÑÐ¾Ñ€Ñ‚. Ð¼Ð°ÑÑÐ¸Ð²Ðµ: ";
 	auto start1 = steady_clock::now();
 	for (int i = 0; i < n; i++)
 	{
@@ -268,9 +260,9 @@ void avgMinMax()
 	}
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
-	cout << "\nÊîëè÷åñòâî ýëåìåíòîâ, ðàâíûõ ñðåäíåìó: " << count;
-	cout << "\nÂðåìÿ ïîèñêà â íåñîðò. ìàññèâå: " << result1.count() << " íàíîñåêóíä";
-	cout << "\n\nÈíäåêñû ýëåìåíòîâ, ðàâíûõ ñðåäíåìó â ñîðò. ìàññèâå: ";
+	cout << "\nÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², Ñ€Ð°Ð²Ð½Ñ‹Ñ… ÑÑ€ÐµÐ´Ð½ÐµÐ¼Ñƒ: " << count;
+	cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¿Ð¾Ð¸ÑÐºÐ° Ð² Ð½ÐµÑÐ¾Ñ€Ñ‚. Ð¼Ð°ÑÑÐ¸Ð²Ðµ: " << result1.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
+	cout << "\n\nÐ˜Ð½Ð´ÐµÐºÑÑ‹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², Ñ€Ð°Ð²Ð½Ñ‹Ñ… ÑÑ€ÐµÐ´Ð½ÐµÐ¼Ñƒ Ð² ÑÐ¾Ñ€Ñ‚. Ð¼Ð°ÑÑÐ¸Ð²Ðµ: ";
 	quickSort(arr, 0, n-1);
 	auto start2 = steady_clock::now();
 	for (int i = 0; i < n; i++)
@@ -282,66 +274,8 @@ void avgMinMax()
 	}
 	auto end2 = steady_clock::now();
 	auto result2 = duration_cast<nanoseconds>(end2 - start2);
-	cout << "\nÂðåìÿ ïîèñêà â ñîðò. ìàññèâå: " << result2.count() << " íàíîñåêóíä";
-	cout << "\n\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
-	_getch();
-	system("cls");
-}
-void lessThanNumber()
-{
-	system("cls");
-	const int n = 100;
-	int arr[n];
-	int count = 0;
-	int a;
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ: \n";
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
-	quickSort(arr, 0, n - 1);
-	cout << "\n\nÎòñîðòèðîâàííûé ìàññèâ: \n";
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
-	cout << "\n\nÂâåäèòå ÷èñëî, ñ êîòîðûì áóäåì ñðàâíèâàòü: ";
-	cin >> a;
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] < a)
-			count++;
-	}
-	cout << "\nÊîëè÷åñòâî ýëåìåíòîâ, êîòîðûå ìåíüøå " << a << ": " << count;
-	cout << "\n\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
-	_getch();
-	system("cls");
-}
-void moreThanNumber()
-{
-	system("cls");
-	const int n = 100;
-	int arr[n];
-	int count = 0;
-	int b;
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ: \n";
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
-	quickSort(arr, 0, n - 1);
-	cout << "\n\nÎòñîðòèðîâàííûé ìàññèâ: \n";
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
-	cout << "\n\nÂâåäèòå ÷èñëî, ñ êîòîðûì áóäåì ñðàâíèâàòü: ";
-	cin >> b;
-	for (int i = 0; i < n; i++)
-	{
-		if (arr[i] > b)
-			count++;
-	}
-	cout << "\nÊîëè÷åñòâî ýëåìåíòîâ, êîòîðûå ìåíüøå " << b << ": " << count;
-	cout << "\n\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
+	cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¿Ð¾Ð¸ÑÐºÐ° Ð² ÑÐ¾Ñ€Ñ‚. Ð¼Ð°ÑÑÐ¸Ð²Ðµ: " << result2.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
+	cout << "\n\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
 	_getch();
 	system("cls");
 }
@@ -356,32 +290,68 @@ int binarySearch(int arr[], int value, int start, int end) {
 	}
 	return -1;
 }
+void lessThanNumber()
+{
+	system("cls");
+	int a;
+	GenerateArray(arr, n);
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	quickSort(arr, 0, n - 1);
+	cout << "\n\nÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << "\n\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾, Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð±ÑƒÐ´ÐµÐ¼ ÑÑ€Ð°Ð²Ð½Ð¸Ð²Ð°Ñ‚ÑŒ: ";
+	cin >> a;
+	int count = binarySearch(arr, a, 0, n - 1);
+	cout << "\nÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¼ÐµÐ½ÑŒÑˆÐµ " << a << ": " << count;
+	cout << "\n\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
+	_getch();
+	system("cls");
+}
+void moreThanNumber()
+{
+	system("cls");
+	int b;
+	GenerateArray(arr, n);
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	quickSort(arr, 0, n - 1);
+	cout << "\n\nÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << "\n\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾, Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð±ÑƒÐ´ÐµÐ¼ ÑÑ€Ð°Ð²Ð½Ð¸Ð²Ð°Ñ‚ÑŒ: ";
+	cin >> b;
+	int count = n - binarySearch(arr, b, 0, n - 1) - 1;
+	cout << "\nÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð±Ð¾Ð»ÑŒÑˆÐµ " << b << ": " << count;
+	cout << "\n\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
+	_getch();
+	system("cls");
+}
 void checkBinarySearch()
 {
 	system("cls");
-	const int n = 100;
-	int arr[n];
 	int value;
 	bool flag = true;
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
-	cout << "Ââåäèòå ÷èñëî, êîòîðîå íóæíî íàéòè: ";
+	GenerateArray(arr, n);
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð½Ð°Ð¹Ñ‚Ð¸: ";
 	cin >> value;
 	auto start1 = steady_clock::now();
 	int result = binarySearch(arr, value, 0, n - 1);
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
 	if (result == -1)
-		cout << "\n×èñëî íå íàéäåíî!\n" << "Âðåìÿ áèíàðíîãî ïîèñêà: " << result1.count() << " íàíîñåêóíä";
-	else cout << "\n×èñëî íàéäåíî!\n" << "Âðåìÿ áèíàðíîãî ïîèñêà: " << result1.count() << " íàíîñåêóíä";
+		cout << "\nÐ§Ð¸ÑÐ»Ð¾ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾!\n" << "Ð’Ñ€ÐµÐ¼Ñ Ð±Ð¸Ð½Ð°Ñ€Ð½Ð¾Ð³Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°: " << result1.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
+	else cout << "\nÐ§Ð¸ÑÐ»Ð¾ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾!\n" << "Ð’Ñ€ÐµÐ¼Ñ Ð±Ð¸Ð½Ð°Ñ€Ð½Ð¾Ð³Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°: " << result1.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
 	auto start2 = steady_clock::now();
 	for (int i = 0; i < n; i++) {
 		if (flag) {
 			if (arr[i] == value) {
 				auto end2 = steady_clock::now();
 				auto result2 = duration_cast<nanoseconds>(end2 - start2);
-				cout << "\nÂðåìÿ ïåðåáîðíîãî ïîèñêà: " << result2.count() << " íàíîñåêóíä";
+				cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¿ÐµÑ€ÐµÐ±Ð¾Ñ€Ð½Ð¾Ð³Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°: " << result2.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
 				flag = false;
 				break;
 			}
@@ -391,25 +361,21 @@ void checkBinarySearch()
 	{
 		auto end2 = steady_clock::now();
 		auto result2 = duration_cast<nanoseconds>(end2 - start2);
-		cout << "\nÂðåìÿ ïåðåáîðíîãî ïîèñêà: " << result2.count() << " íàíîñåêóíä";
+		cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¿ÐµÑ€ÐµÐ±Ð¾Ñ€Ð½Ð¾Ð³Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°: " << result2.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
 	}
-	cout << "\n\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
+	cout << "\n\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
 	_getch();
 	system("cls");
 }
 void changeValues()
 {
 	system("cls");
-	const int n = 100;
-	int arr[n];
 	int firstIndex, secondIndex;
-	srand(time(0));
-	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 199 - 99;
-	cout << "Íåîòñîðòèðîâàííûé ìàññèâ: \n";
+	GenerateArray(arr, n);
+	cout << "ÐÐµÐ¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
-	cout << "\n\nÂâåäèòå èíäåêñû ýëåìåíòîâ: ";
+	cout << "\n\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑÑ‹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: ";
 	cin >> firstIndex >> secondIndex;
 	auto start = steady_clock::now();
 	arr[firstIndex] = arr[firstIndex] + arr[secondIndex];
@@ -417,11 +383,11 @@ void changeValues()
 	arr[firstIndex] = arr[firstIndex] - arr[secondIndex];
 	auto end = steady_clock::now();
 	auto result = duration_cast<nanoseconds>(end - start);
-	cout << "\nÈçìåí¸ííûé ìàññèâ: \n";
+	cout << "\nÐ˜Ð·Ð¼ÐµÐ½Ñ‘Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: \n";
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
-	cout << "\n\nÂðåìÿ èçìåíåíèÿ: " << result.count() << " íàíîñåêóíä";
-	cout << "\n\nÍàæìèòå ëþáóþ êíîïêó äëÿ âîçâðàùåíèÿ â ìåíþ";
+	cout << "\n\nÐ’Ñ€ÐµÐ¼Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ: " << result.count() << " Ð½Ð°Ð½Ð¾ÑÐµÐºÑƒÐ½Ð´";
+	cout << "\n\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¼ÐµÐ½ÑŽ";
 	_getch();
 	system("cls");
 }
@@ -430,16 +396,16 @@ void menu()
 	setlocale(0, "");
 	int mainMenu;
 	{
-		cout << "×òî áóäåì äåëàòü? \n"
-			<< "1 - Ñîçäàòü ìàññèâ ñî ñëó÷àéíûìè çíà÷åíèÿìè â äèàïîçîíå îò -99 äî 99\n"
-			<< "2 - Îòñîðòèðîâàòü ìàññèâ ñîðòèðîâêîé (îò ìåíüøåãî ê áîëüøåìó)\n"
-			<< "3 - Íàéòè ìàêñèìàëüíûé è ìèíèìàëüíûé ýëåìåíòû ìàññèâà\n"
-			<< "4 - Âûâåñòè ñðåäíåå çíà÷åíèå ìàêñèìàëüíîãî è ìèíèìàëüíîãî çíà÷åíèÿ è èõ ïîèñê\n"
-			<< "5 - Âûâåñòè êîëè÷åñòâî ýëåìåíòîâ â îòñîðòèðîâàííîì ìàññèâå, êîòîðûå ìåíüøå ââåä¸ííîãî ÷èñëà\n"
-			<< "6 - Âûâåñòè êîëè÷åñòâî ýëåìåíòîâ â îòñîðòèðîâàííîì ìàññèâå, êîòîðûå áîëüøå ââåä¸ííîãî ÷èñëà\n"
-			<< "7 - Åñòü ëè ââåä¸ííîå ÷èñëî â îòñîðòèðîâàííîì ìàññèâå (áèíàðíûé ïîèñê)\n"
-			<< "8 - Ïîìåíÿòü ìåñòàìè ýëåìåíòû ìàññèâà\n"
-			<< "9 - Âûõîä\n\n";
+		cout << "Ð§Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÐ¼ Ð´ÐµÐ»Ð°Ñ‚ÑŒ? \n"
+			<< "1 - Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð² ÑÐ¾ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ð¼Ð¸ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð² Ð´Ð¸Ð°Ð¿Ð¾Ð·Ð¾Ð½Ðµ Ð¾Ñ‚ -99 Ð´Ð¾ 99\n"
+			<< "2 - ÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð² ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¾Ð¹ (Ð¾Ñ‚ Ð¼ÐµÐ½ÑŒÑˆÐµÐ³Ð¾ Ðº Ð±Ð¾Ð»ÑŒÑˆÐµÐ¼Ñƒ)\n"
+			<< "3 - ÐÐ°Ð¹Ñ‚Ð¸ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¸ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð¼Ð°ÑÑÐ¸Ð²Ð°\n"
+			<< "4 - Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÑ€ÐµÐ´Ð½ÐµÐµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð¸ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¸ Ð¸Ñ… Ð¿Ð¾Ð¸ÑÐº\n"
+			<< "5 - Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð¼ Ð¼Ð°ÑÑÐ¸Ð²Ðµ, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¼ÐµÐ½ÑŒÑˆÐµ Ð²Ð²ÐµÐ´Ñ‘Ð½Ð½Ð¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð°\n"
+			<< "6 - Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð¼ Ð¼Ð°ÑÑÐ¸Ð²Ðµ, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð²Ð²ÐµÐ´Ñ‘Ð½Ð½Ð¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð°\n"
+			<< "7 - Ð•ÑÑ‚ÑŒ Ð»Ð¸ Ð²Ð²ÐµÐ´Ñ‘Ð½Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð² Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð¼ Ð¼Ð°ÑÑÐ¸Ð²Ðµ (Ð±Ð¸Ð½Ð°Ñ€Ð½Ñ‹Ð¹ Ð¿Ð¾Ð¸ÑÐº)\n"
+			<< "8 - ÐŸÐ¾Ð¼ÐµÐ½ÑÑ‚ÑŒ Ð¼ÐµÑÑ‚Ð°Ð¼Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð¼Ð°ÑÑÐ¸Ð²Ð°\n"
+			<< "9 - Ð’Ñ‹Ñ…Ð¾Ð´\n\n";
 	}
 	cin >> mainMenu;
 
@@ -481,7 +447,7 @@ void menu()
 		exit(1);
 		break;
 	default:
-		cout << "Îøèáêà! Ïîïðîáóéòå ñíîâà\n";
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°\n";
 		_getch();
 		system("cls");
 		menu();
