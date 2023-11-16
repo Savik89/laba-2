@@ -22,16 +22,13 @@ void cloneArray(int arr[], int arr2[])
 void bubbleSort(int arr[], int n)
 {
 	int count = 0;
-	int swap = 0;
 	while (true)
 	{
 		count = 0;
 		for (int i = 0; i < n - 1; i++)
 			if (arr[i] > arr[i + 1])
 			{
-				swap = arr[i + 1];
-				arr[i + 1] = arr[i];
-				arr[i] = swap;
+				swap(arr[i], arr[i+1]);
 				count++;
 			}
 		if (count == 0)
@@ -41,25 +38,20 @@ void bubbleSort(int arr[], int n)
 void shakerSort(int arr[], int n)
 {
 	int count = 0;
-	int swap = 0;
 	while (true)
 	{
 		count = 0;
 		for (int i = 0; i < n - 1; i++)
 			if (arr[i] > arr[i + 1])
 			{
-				swap = arr[i + 1];
-				arr[i + 1] = arr[i];
-				arr[i] = swap;
+				swap(arr[i], arr[i + 1]);
 				count++;
 			}
 		for (int i = 1; i < n; i++)
 		{
 			if (arr[n - 1 - i] < arr[n - 1 - i - 1])
 			{
-				swap = arr[n - 1 - i - 1];
-				arr[n - 1 - i - 1] = arr[n - 1 - i];
-				arr[n - 1 - i] = swap;
+				swap(arr[n - 1 - i], arr[n - 1 - i - 1]);
 				count++;
 			}
 		}
